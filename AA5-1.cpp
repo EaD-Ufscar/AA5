@@ -6,7 +6,8 @@
 //  Copyright (c) 2014 EliSor. All rights reserved.
 //
 /*
- Imagine uma fila de pessoas sentadas, onde não há a necessidade de ficar em pé um atrás do outro aguardando sua vez. Cada um tem uma senha (como nos bancos, atualmente) que indica sua posição na fila. A senha pode ser numérica ou alfa-numérica (você escolhe).
+ Imagine uma fila de pessoas sentadas, onde não há a necessidade de ficar em pé um atrás do outro aguardando sua vez. 
+ Cada um tem uma senha (como nos bancos, atualmente) que indica sua posição na fila. A senha pode ser numérica ou alfa-numérica (você escolhe).
  Os funcionários dos bancos atendem o cliente apertando um botãozinho que apresenta em um display o número da senha do próximo cliente. Os números não precisam estar ordenados sequencialmente. A senha 1 já pode ter sido utilizada por alguém e agora será reutilizada. Assim, o que importa é a posição na fila. É atendido sempre cliente que está na primeira posição. Todos os outros clientes sobem uma posição quando o primeiro deixa a fila (o segundo vira primeiro, o terceiro vira segundo e assim por diante).
  Como cada banco tem um determinado número de cadeiras (tamanho da fila), você deverá implementar um sistema de fila (pense nos métodos da classe fila) que se adeque ao banco (tenha o tamanho que o banco deseje).
  Para isso, implemente a fila com alocação dinâmica de memória.
@@ -96,7 +97,7 @@ int main()
     int num, proximo, tamFila;
     char opcao;
     
-    cout << "Qual o tamanho necessário para a fila: "<< endl;
+    cout << "Qual o tamanho necessario para a fila: ";
     cin >> tamFila;
     
     FILA banco(tamFila);
@@ -105,16 +106,20 @@ int main()
     }
     
     do {
+        cout << endl;
         cout << "i. inserir um elemento na fila" << endl;
         cout << "r. retirar um elemento da fila" << endl;
         cout << "p. imprimir a fila" << endl;
-        cout << "s. sair" << endl;
-        cout << "Entre com uma das opções do menu!" << endl;
+        cout << "s. sair" << endl << endl;
+        cout << "Entre com uma das opcoes do menu: ";
         cin >> opcao;
+        cout << endl;
         
         if (opcao == 'i') {
-            cout << "Entre com um número";
+            cout << "Entre com um numero: ";
             cin >> num;
+            cout << endl;
+            
             if (banco.insere(num))
                 cout << "Foi inserido!" << endl;
             else
@@ -127,12 +132,11 @@ int main()
         if (opcao == 'r') {
             proximo = banco.retira();
             if (proximo != 0)
-                cout << "Agora é a vez do num. " << proximo << endl;
+                cout << "Agora eh a vez do num: " << proximo << endl;
             else
-                cout << "Não tem ninguem na fila!" << endl;
+                cout << "Nao tem ninguem na fila!" << endl;
         }
     } while (opcao != 's');
     return 0;
 }
-
 
