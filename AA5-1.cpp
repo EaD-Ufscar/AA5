@@ -109,7 +109,7 @@ void FILA::imprime(void){
 // função principal
 int main()
 {
-    int num, proximo, tamFila;
+    int num, proximoFila, tamFila;
     char opcao;
     
     cout << "Qual o tamanho necessario para a fila: ";
@@ -146,13 +146,12 @@ int main()
             banco.imprime();
         
         if (opcao == 'r') {
-            proximo = banco.retira();
-            if (proximo != 0)
-                cout << "Agora eh a vez do numero: " << proximo << endl;
+            proximoFila = banco.retira();
+            if (proximoFila != 0)
+                cout << "Agora eh a vez do numero: " << proximoFila << endl;
             else
                 cout << "Nao tem ninguem na fila!" << endl;
         }
     } while (opcao != 's');
     return 0;
 }
-
