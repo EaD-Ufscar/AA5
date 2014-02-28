@@ -1,9 +1,15 @@
 //
-//  main.cpp
-//  AA5.1
+//  Atividade AA5.1
 //
-//  Created by EliSor on 27/02/14.
-//  Copyright (c) 2014 EliSor. All rights reserved.
+//  Alunos: 
+//  Elivelton Sorato RA: 545015
+//  Marcelo Miky     RA: 189669
+//  Willian Moraes   RA: 545228
+//
+//  Disciplina: Programação Orientada a Objetos 1
+//  Professor: Renato Bueno
+// 
+//  Fevereiro de 2014
 //
 /*
  Imagine uma fila de pessoas sentadas, onde não há a necessidade de ficar em pé um atrás do outro aguardando sua vez. 
@@ -20,8 +26,9 @@
 
 using namespace std;
 
+// definindo a classe FILA
 class FILA {
-    
+
 public:
     FILA();
     FILA(int quant);
@@ -31,10 +38,11 @@ public:
     void imprime(void);
     
 private:
-    int *elementos;
+    int *elementos; // ponteiro elementos
     int tamMax, tamAtual;
 };
 
+// construtor sem parâmetros
 FILA::FILA() {
     elementos = new int[10];
     if (elementos != NULL) {
@@ -43,6 +51,7 @@ FILA::FILA() {
     }
 }
 
+// Método que armazena a quantidade da fila
 FILA::FILA(int quant){
     if (quant > 0) {
         elementos = new int[quant];
@@ -57,11 +66,14 @@ FILA::FILA(int quant){
     }
 }
 
+// destrutor
 FILA::~FILA(){
     delete [] elementos;
     elementos = 0;
 }
 
+
+// método que insere uma pessoa na fila caso não esteja cheia
 bool FILA::insere(int valor){
     if (tamAtual < tamMax && valor > 0) {
         elementos[tamAtual++] = valor;
@@ -71,6 +83,7 @@ bool FILA::insere(int valor){
     }
 }
 
+// método que retira a próxima pessoa a sair da fila
 int FILA::retira(void){
     int i, valor;
     if (tamAtual > 0) {
@@ -85,6 +98,7 @@ int FILA::retira(void){
     }
 }
 
+// método que imprime as pessoas na fila
 void FILA::imprime(void){
     int i;
     for (i=0; i<tamAtual; i++) {
@@ -92,6 +106,7 @@ void FILA::imprime(void){
     }
 }
 
+// função principal
 int main()
 {
     int num, proximo, tamFila;
@@ -105,7 +120,8 @@ int main()
         FILA estadio_futebol;
     }
     
-    do {
+    do { 
+        // menu
         cout << endl;
         cout << "i. inserir um elemento na fila" << endl;
         cout << "r. retirar um elemento da fila" << endl;
@@ -132,7 +148,7 @@ int main()
         if (opcao == 'r') {
             proximo = banco.retira();
             if (proximo != 0)
-                cout << "Agora eh a vez do num: " << proximo << endl;
+                cout << "Agora eh a vez do numero: " << proximo << endl;
             else
                 cout << "Nao tem ninguem na fila!" << endl;
         }
